@@ -16,7 +16,7 @@ type Engineer struct {
 
 // -----------------------------------------------------
 // Engineer
-func newEngineer(id uint32, hourlyRate float64, roles string, user_department department.DEPARTMENT, user *user.User) (*Engineer, error) {
+func NewEngineer(id uint32, hourlyRate float64, roles string, user_department department.DEPARTMENT, user *user.User) (*Engineer, error) {
 	return &Engineer{
 		id:         id,
 		hourlyRate: hourlyRate,

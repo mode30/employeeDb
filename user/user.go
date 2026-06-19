@@ -3,9 +3,9 @@ package user
 import (
 	// "fmt"
 	"errors"
+	"fmt"
 	// "example.com/employee_management/employee_shared"
 )
-
 
 // type User struct {
 // 	FirstName string
@@ -48,4 +48,9 @@ func (person *User)GetUserLastName()string{
 func (person *User)GetUserAge()int8{
 	// return person.Age
 	return person.age
+}
+
+func (person *User)DisplayInformation(){
+	personal_information:=fmt.Sprintln(person.firstName,person.lastName,person.age)
+	fmt.Println(personal_information)
 }

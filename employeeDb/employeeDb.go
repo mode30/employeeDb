@@ -11,6 +11,7 @@ type EmployeeDB struct{
 	// employeedb map[int16]employeeDatabase
 }
 
+//create new instance of databse
 func NewEmployeeDb()*EmployeeDB{
 	return &EmployeeDB{
 		employeedb: make(map[int16]employee_shared.Employee),
@@ -18,6 +19,7 @@ func NewEmployeeDb()*EmployeeDB{
 }
 
 
+//add into dabase
 func (db *EmployeeDB)AddEmployee(employeeInfo employee_shared.Employee)*EmployeeDB{
 
 	id:=employeeInfo.GetId()
@@ -27,6 +29,7 @@ func (db *EmployeeDB)AddEmployee(employeeInfo employee_shared.Employee)*Employee
 }
 
 
+//search db by id
 func(db *EmployeeDB)SearchById(id int16)(value employee_shared.Employee,bool){
 
 	value,exists:=db.employeedb[id]
@@ -35,6 +38,7 @@ func(db *EmployeeDB)SearchById(id int16)(value employee_shared.Employee,bool){
 	// 	return EmployeeDB, false
 	// }
 }
+//delete particular db by id
 func (db *EmployeeDB)DeleteById(id int16)(value employee_shared.Employee,string){
 	value,exists:=db.employeedb[id]
 	if exists{
@@ -43,4 +47,11 @@ func (db *EmployeeDB)DeleteById(id int16)(value employee_shared.Employee,string)
 	not_found:=fmt.Sprintln("id not found, entry not deleted")
 	return not_found
 
+}
+
+//returns full database or prints full db
+func(db *EmployeeDB)ReturnFullList(){
+	for index,db:=range db.employeedb{
+		fmt.Println(index,db)
+	}
 }
