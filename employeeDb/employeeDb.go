@@ -21,8 +21,7 @@ func NewEmployeeDb()*EmployeeDB{
 func (db *EmployeeDB)AddEmployee(employeeInfo employee_shared.Employee)*EmployeeDB{
 
 	id:=employeeInfo.GetId()
-	fullName:=employeeInfo.FullName()
-	return &EmployeeDB{
-		employeedb:map[id]fullName,
-	}
+	db.employeedb[id]=employeeInfo
+	return db
+	// fullName:=employeeInfo.FullName()
 }
