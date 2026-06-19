@@ -25,3 +25,22 @@ func (db *EmployeeDB)AddEmployee(employeeInfo employee_shared.Employee)*Employee
 	return db
 	// fullName:=employeeInfo.FullName()
 }
+
+
+func(db *EmployeeDB)SearchById(id int16)(value employee_shared.Employee,bool){
+
+	value,exists:=db.employeedb[id]
+	return value,exists
+	// if exists{
+	// 	return EmployeeDB, false
+	// }
+}
+func (db *EmployeeDB)DeleteById(id int16)(value employee_shared.Employee,string){
+	value,exists:=db.employeedb[id]
+	if exists{
+		delete(employee_shared.Employee,id)
+	}
+	not_found:=fmt.Sprintln("id not found, entry not deleted")
+	return not_found
+
+}
