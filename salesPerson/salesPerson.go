@@ -34,6 +34,7 @@ func newSalesPerson(id uint32, hourlyRate float64, roles string, user_department
 
 }
 
+//returns first name of sales person
 func (salesPerson *SalesPerson) GetSalesPersonFirstName() string {
 firstName:=salesPerson.GetUserFirstName()
 	return firstName
@@ -41,6 +42,7 @@ firstName:=salesPerson.GetUserFirstName()
 	// return result
 }
 
+//retruns last name of sales person
 func (salesPerson *SalesPerson) GetSalesPersonLastName() string {
 
 lastName:=salesPerson.GetUserLastName()
@@ -49,20 +51,25 @@ lastName:=salesPerson.GetUserLastName()
 	// return result
 }
 
+//returns age of sales eprson
 func (salesPerson *SalesPerson) GetSalesPersonAge() int8 {
 	return salesPerson.GetUserAge()
 }
 
+//returns id of sales eprson
 func (salesPerson *SalesPerson) GetId() uint32 {
 	return salesPerson.id
 }
+//returns salary of sales peerson
 func (salesPerson *SalesPerson) CalculatePay() float64 {
 	return salesPerson.hourlyRate * 24
 }
+//returns roles of sales person(postion)
 func (salesPerson *SalesPerson) GetRoles() string {
 	return salesPerson.roles
 }
 
+//returns full name of sales person
 func (salesPerson *SalesPerson) FullName() {
 	firstname := salesPerson.GetUserFirstName()
 	lastname := salesPerson.GetUserLastName()
@@ -70,6 +77,7 @@ func (salesPerson *SalesPerson) FullName() {
 	fmt.Println("full name:", fullName)
 }
 
+//displays fullinformation of sales person
 func (salesPerson *SalesPerson) DisplayInformation() {
 	fmt.Println(salesPerson.GetUserFirstName(), salesPerson.GetUserLastName(), salesPerson.GetUserAge(), salesPerson.id, salesPerson.roles, salesPerson.hourlyRate, salesPerson.department)
 }
